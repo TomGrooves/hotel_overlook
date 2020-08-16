@@ -30,9 +30,12 @@ function App() {
   const [loginData, setLoginData] = useState()
   const [searchPersons, setSearchPersons] = useState(1)
   const [singleNews, setSingleNews] = useState([])
-  const [currentLocation, setCurrentLocation] = useState()
+  const [currentLocation, setCurrentLocation] = useState("")
 
   useEffect(() => {
+    if (currentLocation == ""){
+      setCurrentLocation("/forside")
+    }
     if (sessionStorage.getItem('token')){
       console.log("Session storage is present- Setting userid")
       setLoginData(JSON.parse(sessionStorage.getItem('token')))
@@ -78,29 +81,13 @@ function App() {
    }
   }
 
-  // Navbar options
-  const options = {
-    bgcolor : "rgb(20,20,20)",  //required
-    textcolor : "white",        //require
-    navlinks : [
-      {main:"Forside"}, 
-      {main:"Hoteller og destinationer"},  
-      {main:"Reservation"},
-      {main:"Login"}
-    ],                          //required
-    gap : 3,                    //required [1 - 12]
-    height : "90px",            //optional
-    fontsize : "1rem",        //optional
-    innersize: "80%",
-  }
-
   return (
 
     <Router>
         {isTabletOrMobile && 
-          <MobileNavBar setSearchPersons={setSearchPersons} doFetch={doFetch} setSearchResult={setSearchResult} options={options}/>
+          <MobileNavBar setSearchPersons={setSearchPersons} doFetch={doFetch} setSearchResult={setSearchResult}/>
         }{!isTabletOrMobile &&
-          <Navbar currentLocation={currentLocation} setSearchPersons={setSearchPersons} doFetch={doFetch} setSearchResult={setSearchResult} options={options}/>
+          <Navbar currentLocation={currentLocation} setSearchPersons={setSearchPersons} doFetch={doFetch} setSearchResult={setSearchResult}/>
         }
         <Switch>
         <Route path="/minereservationer">
