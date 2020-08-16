@@ -1,0 +1,47 @@
+@import '../../styles/theme.scss';
+
+.topcontainer{
+    padding-left:16px;
+    h3{
+        font-size:1.6rem;
+    }
+}
+
+.maincontainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    margin:auto;
+    margin-bottom:5%;
+    margin-top:5%;
+    gap:16px;
+    width:75%;
+}
+
+.griditem{
+    background-color:white;
+    border-radius: 8px;
+    box-shadow: $shadow;
+    align-content: center;
+    width:100%;
+
+    p{
+        padding: 4px;
+        margin-left:4px;
+    }
+
+    .delbutton{
+        height: 60px;
+        width: auto;
+        background-color: $color-red;
+        border-radius: 4px;
+        padding: 4px;
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 992px) {
+    .maincontainer{
+        grid-template-columns: 1fr;
+    }
+  }

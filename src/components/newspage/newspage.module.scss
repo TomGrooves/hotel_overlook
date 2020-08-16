@@ -1,0 +1,28 @@
+@import '../../styles/theme.scss';
+
+.newscontainer{
+    display:grid;
+    width: 50%;
+    margin:auto;
+    align-content: center;
+    margin-top:2%;
+    margin-bottom:3%;
+
+    a{
+        width:fit-content;
+    }
+
+    img{
+        margin:auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+ .newscontainer{
+     width:auto;
+     margin-top:0;
+     img{
+         width:100%;
+     }
+ }   
+}

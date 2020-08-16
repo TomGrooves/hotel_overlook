@@ -1,25 +1,132 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import { useMediaQuery } from 'react-responsive';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import Navbar from './components/navbar/navbar';
+import FrontPage from './components/frontpage/frontpage';
+import Footer from './components/footer/footer';
+import FindRoomPage from './components/findroom/findroompage';
+import HotelPage from './components/hotelpage/hotelpage';
+import CheckOut from './components/checkout/checkout';
+import Login from './components/login/login';
+import NewsPage from './components/newspage/newspage';
+import MobileNavBar from './components/mobilenavbar/mobilenavbar';
+import Reservations from './components/reservations/reservations';
+
+import carImg1 from './Billeder/fishmarket-hamborg.jpg';
+import carImg2 from './Billeder/center-square-wroclaw.jpg';
+import carImg3 from './Billeder/city-houses-reykjavik.jpg';
+import carImg4 from './Billeder/frankfurt-skyline-germany.jpg';
+
 
 function App() {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+
+  const [searchResult, setSearchResult] = useState([])
+  const [loginData, setLoginData] = useState()
+  const [searchPersons, setSearchPersons] = useState(1)
+  const [singleNews, setSingleNews] = useState([])
+  const [currentLocation, setCurrentLocation] = useState()
+
+  useEffect(() => {
+    if (sessionStorage.getItem('token')){
+      console.log("Session storage is present- Setting userid")
+      setLoginData(JSON.parse(sessionStorage.getItem('token')))
+    }
+  }, [])
+
+      // Carousel object (required prop for Carousel)
+  const carouselItems = {
+    item : [
+        {img: carImg4},
+        {img: carImg2},
+        {img: carImg3},
+        {img: carImg1},
+
+        ]
+    }
+
+  async function doFetch(url, method){
+    if (method){
+      let options = {
+        method: method,
+        headers: {
+            'Authorization': `Bearer ${loginData.access_token}`
+        },
+    }
+    try {
+      const response = await fetch(url, options)
+      const data = await response.json()
+      return data
+    }
+    catch (error){
+       console.log(error)
+    }
+  }
+
+    try {
+      const response = await fetch(url)
+      const data = await response.json()
+      return data
+   }
+   catch (error){
+       console.log(error)
+   }
+  }
+
+  // Navbar options
+  const options = {
+    bgcolor : "rgb(20,20,20)",  //required
+    textcolor : "white",        //require
+    navlinks : [
+      {main:"Forside"}, 
+      {main:"Hoteller og destinationer"},  
+      {main:"Reservation"},
+      {main:"Login"}
+    ],                          //required
+    gap : 3,                    //required [1 - 12]
+    height : "90px",            //optional
+    fontsize : "1rem",        //optional
+    innersize: "80%",
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+        {isTabletOrMobile && 
+          <MobileNavBar setSearchPersons={setSearchPersons} doFetch={doFetch} setSearchResult={setSearchResult} options={options}/>
+        }{!isTabletOrMobile &&
+          <Navbar currentLocation={currentLocation} setSearchPersons={setSearchPersons} doFetch={doFetch} setSearchResult={setSearchResult} options={options}/>
+        }
+        <Switch>
+        <Route path="/minereservationer">
+          <Reservations doFetch={doFetch} loginData={loginData}/>
+        </Route>
+        <Route path="/nyhed">
+          <NewsPage setCurrentLocation={setCurrentLocation} singleNews={singleNews}/>
+        </Route>
+        <Route path="/login">
+          <Login setCurrentLocation={setCurrentLocation} setLoginData={setLoginData} loginData={loginData} doFetch={doFetch}/>
+        </Route>
+        <Route path="/reservation">
+          <CheckOut setCurrentLocation={setCurrentLocation} loginData={loginData} doFetch={doFetch}/>
+        </Route>
+        <Route path="/hoteller og destinationer">
+          <HotelPage setCurrentLocation={setCurrentLocation} searchPersons={searchPersons} setSearchPersons={setSearchPersons} searchResult={searchResult} setSearchResult={setSearchResult}  carouselItems={carouselItems} doFetch={doFetch}/>
+        </Route>
+        <Route path="/søg">
+          <FindRoomPage setCurrentLocation={setCurrentLocation} searchPersons={searchPersons} setSearchPersons={setSearchPersons} searchResult={searchResult} vert={true} setSearchResult={setSearchResult} carouselItems={carouselItems} doFetch={doFetch}/>
+        </Route>
+          <Route path="/">
+            <FrontPage setCurrentLocation={setCurrentLocation} setSingleNews={setSingleNews} carouselItems={carouselItems} doFetch={doFetch}/>
+          </Route>
+        </Switch>
+        <Footer/>
+    </Router>
   );
 }
 

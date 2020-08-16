@@ -1,0 +1,385 @@
+@import '../../styles/theme.scss';
+.headerlogo{
+    width: 600px;
+    color:white;
+    position: absolute;
+    margin:0;
+    pointer-events: none;
+    transform:translateX(24vw) translateY(-33vh);
+    box-sizing: border-box;
+
+    img{
+        transform:scale(3);
+    }
+
+    .headertext{
+        font-size: 1.8rem;
+        transform: translateY(-40px)translateX(-36%);
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+.maincontainer{
+
+    margin:auto;
+    gap: 8px;
+    width:75%;
+
+    h3{
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+}
+
+.topnav{
+    list-style-type: none;
+    display:grid;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 50%;
+    margin:auto;
+    padding-top:8px;
+    padding-bottom:8px;
+    background: rgb(235,235,235);
+    background: linear-gradient(90deg, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 50%, rgba(235,235,235,1) 100%);
+    box-shadow: 0px 5px 10px -11px rgba(0,0,0,0.74);
+
+    li{
+        display:inline-block;
+        p{
+            cursor: pointer;
+            margin:auto;
+            padding:8px;
+        }
+        b{
+            cursor: pointer;
+            margin:auto;
+            padding:8px;
+            display:inline-block
+        }
+    }
+}
+
+.citytopcontainer{
+        h4{
+            font-size: 2rem;
+            font-weight: 300;
+        }
+        p{
+            margin: auto;
+        }
+}
+
+.hoteltopcontainer{
+    h4{
+        font-size: 2rem;
+        font-weight: 300;
+    }
+    p{
+        margin: auto;
+    }
+
+    h3{
+        font-size: 1.6rem;
+        font-weight: 300;
+    }
+}
+
+.topcontainer{
+    width: 75%;
+    margin: auto;
+    margin-bottom:5%;
+    div{
+        h4{
+            font-weight: 300;
+            font-size: 2rem;
+        }
+    }
+}
+
+.gridcontainer{
+    border-top: solid 1px $color-bg;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:32px;
+
+    .griditem{
+        display:grid;
+        text-align: left;
+        cursor: pointer;
+        img{
+            width:100%;
+        }
+        h4{
+            font-size:1.3rem;
+            font-weight: 400;
+            margin:0;
+            margin-top:2%;
+            margin-bottom:2%;
+            padding:0
+        }
+        p{
+            margin:0;
+            padding:0;
+        }
+    }
+
+    margin-bottom:5%;
+    margin-top:2.5%;
+}
+
+.hotelgridcontainer{
+    border-top: solid 1px $color-bg;
+    display:inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:32px;
+    width:80%;
+
+    .griditem{
+
+        .commentsection{
+            h3{
+                padding:18px;
+            }
+            .teasertext{
+                margin-top:5%;
+                margin-bottom:2%;
+            }
+            form{
+                label{
+                    display:block;
+                }
+                input{
+                    height:90px;
+                    width:40%;
+                    display:block;
+                }
+            }
+        }
+        display:grid;
+        text-align: left;
+        cursor: pointer;
+        img{
+            width:100%;
+
+        }
+        h4{
+            font-size:1.3rem;
+            font-weight: 400;
+            margin:0;
+            margin-top:2%;
+            margin-bottom:2%;
+            padding:0
+        }
+        p{
+            margin:0;
+            padding:0;
+        }
+        .stars{
+            margin:auto;
+            width:100%;
+            height:90px;
+        }
+    }
+
+    margin-bottom:5%;
+    margin-top:2.5%;
+}
+
+.checkmark{
+    display:inline-block;
+    font-size:2rem;
+}
+
+.checkmarktext{
+    display:inline-block;
+}
+
+.sidemenu{
+    transform: translateY(-75px);
+    display: inline-block;
+    p{
+        cursor: pointer;
+    }
+}
+
+.sidemenufacilities{
+    display: inline-block;
+    background-color:$color-bg;
+    padding:8px;
+}
+
+
+.roomcontainer{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+    width: 90%;
+    margin: auto;
+    border-top: solid 1px rgb(180,180,180);
+    padding-bottom:5%;
+
+    article{
+        background-color:white;
+    }
+}
+
+.accordgriditem{
+    background-color: white;
+    display:grid;
+    grid-template-columns: 0.5fr 1fr;
+    padding: 8px;
+    img{
+        cursor: pointer;
+        width: 100%;
+    }
+
+    h3{
+        margin-left:1%;
+    }
+
+    h4{
+        margin-left:1%;
+    }
+    p{
+        margin-left:1%;
+    }
+    b{
+        margin-left:1%;
+    }
+}
+
+.accord_innerdiv{
+    margin:5%;
+
+    img{
+        margin-top:5%;
+        width: 95%;
+        cursor: pointer;
+    }
+    div{
+        text-align: left;
+        p{
+            margin:1%;
+        }
+    }
+}
+
+.accord_faciltitle{
+    margin-top:5%;
+    text-align: left;
+    font-size:1.5rem;
+    margin-bottom:2.5%;
+}
+
+.accord_topimg{
+    margin:2%;
+    margin-top:12%;
+}
+
+.accord_topdiv{
+    margin-left:2%;
+}
+
+.accordiongrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:4px;
+    margin:5%;
+    text-align: left;
+}
+
+.pricegrid{
+    background-color:white;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin:auto;
+    text-align: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.innerpricegrid{
+    background-color:$color-bg;
+    width:75%;
+    text-align: center;
+    padding:5%;
+    b{display:block}
+    p{display:block}
+    h4{display:inline-block}
+    h5{display:inline-block}
+    button{
+        margin-left:5%;
+        width: 140px;
+        height: 40px;
+        display:inline-block}
+}   
+
+@media screen and (max-width: 992px) {
+    .headerlogo{
+        width: auto;
+        transform:translateX(10vw) translateY(-30vh);
+        img{
+            transform:scale(2);
+        }
+        .headertext{
+            font-size: 1rem;
+            transform: translateY(-40px)translateX(-10%);
+        }
+    }
+
+    .topnav{
+        width:auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .topcontainer{
+        width:95%;
+        margin-bottom:10%;
+    }
+
+    .gridcontainer{
+        grid-template-columns: 1fr;
+    }
+
+    .hotelgridcontainer{
+        grid-template-columns: 1fr;
+        width:100%;
+    }
+
+    .sidemenu{
+        transform:translateY(0)
+    }
+
+    .commentsection{
+        form{
+            input{
+                width: 96% !important;
+
+            }
+        }
+    }
+    .maincontainer{
+        width:95%;
+    }
+    .roomcontainer{
+        grid-template-columns: 1fr;
+    }
+    .accordiongrid{
+        grid-template-columns: 1fr;
+    }
+    .pricegrid{
+        grid-template-columns: 1fr;
+    }
+    .accordgriditem{
+        grid-template-columns: 1fr;
+        .accord_topimg{
+            margin:0;
+        }
+    }
+}

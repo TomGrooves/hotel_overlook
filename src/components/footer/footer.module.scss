@@ -1,0 +1,27 @@
+.footer{
+    background-color:white;
+    display: grid;
+    grid-template-columns: 1.6fr 0.1fr 0.1fr 1.6fr;
+    align-items: center;
+    justify-items: center;
+    p{
+        font-size: 0.9rem;
+        color:rgb(60,60,60);
+    }
+    .icon{
+        color:rgb(60,60,60);
+        display: inline-block;
+        font-size: 2rem;        
+    }
+    
+    ul{
+        width:70%;
+        li{
+            display: inline-block;
+            text-decoration: none;
+            list-style-type: none;
+            color:rgb(60,60,60);
+            margin: 2%;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@import '../../styles/theme.scss';
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownContent {
+    margin-top:5%;
+    display: none;
+    position: absolute;
+    min-width: 120px;
+    box-shadow: $shadow;
+    z-index: 1;
+    transform: translateX(-10%);
+}
+
+.dropdown:hover .dropdownContent{
+    display: block;
+}
+
+.dropdown a{
+    display: inline-block;
+    text-align: left;
+    padding: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropdown a:nth-child(1){
+    margin-top: 4px;
+}
+
+nav {
+        div{
+            a{
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 16px;
+                padding-right: 16px;
+                border-left: solid 1px white;
+                height: 40px;
+                margin-top: 10%;
+            }
+
+            p{
+                margin:0;
+                padding:0;
+                cursor:pointer;
+            }
+        }
+        
+            a:nth-child(2){
+                border-left:none;
+            }
+            a:nth-child(6){
+                border-right:none;
+            }
+}

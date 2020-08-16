@@ -1,0 +1,159 @@
+@import '../../styles/theme.scss';
+
+.maincontainer{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    width: 100%;
+    margin:auto;
+    gap: 8px;
+    width:75%;
+
+    h3{
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+}
+.headerlogo{
+    width: 600px;
+    color:white;
+    position: absolute;
+    margin:0;
+    pointer-events: none;
+    transform:translateX(24vw) translateY(-33vh);
+    box-sizing: border-box;
+
+    img{
+        transform:scale(3);
+    }
+
+    .headertext{
+        font-size: 1.8rem;
+        transform: translateY(-40px)translateX(-36%);
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.roomcontainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+    width: 90%;
+    margin: auto;
+    border-top: solid 1px rgb(180,180,180);
+    padding-bottom:5%;
+
+    section{
+        background-color:white;
+    }
+
+    article{
+        background-color:white;
+    }
+
+}
+
+.griditem{
+    background-color: white;
+    display:grid;
+    grid-template-columns: 0.5fr 1fr;
+    padding: 8px;
+    img{
+        cursor: pointer;
+        width: 100%;
+    }
+
+    h3{
+        margin-left:1%;
+    }
+
+    h4{
+        margin-left:1%;
+    }
+    p{
+        margin-left:1%;
+    }
+    b{
+        margin-left:1%;
+    }
+}
+
+.checkmark{
+    display:inline-block;
+    font-size:2rem;
+}
+
+.checkmarktext{
+    display:inline-block;
+}
+
+.searchContainer{
+    margin-top:5%;
+    h4{
+        font-size:1.5rem;
+    }
+}
+
+.accord_innerdiv{
+    margin:5%;
+    div{
+        text-align: left;
+        p{
+            margin:1%;
+        }
+    }
+}
+
+.accord_faciltitle{
+    margin-top:5%;
+    text-align: left;
+    font-size:1.5rem;
+    margin-bottom:2.5%;
+}
+
+.accord_topimg{
+    margin:2%;
+    margin-top:12%;
+    cursor: pointer;
+}
+
+.accord_topdiv{
+    margin-left:2%;
+}
+
+.accordiongrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:4px;
+    margin:5%;
+    text-align: left;
+}
+
+.pricegrid{
+    background-color:white;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin:auto;
+    text-align: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.innerpricegrid{
+    background-color:$color-bg;
+    width:75%;
+    text-align: center;
+    padding:5%;
+    b{display:block}
+    p{display:block}
+    h4{display:inline-block}
+    h5{display:inline-block}
+    button{
+        margin-left:5%;
+        width: 100px;
+        height: 40px;
+        display:inline-block}
+}   
