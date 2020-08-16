@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hotel_overlook/static/css/main.bbba6ef9.chunk.css",
-    "main.js": "/hotel_overlook/static/js/main.64b78452.chunk.js",
-    "main.js.map": "/hotel_overlook/static/js/main.64b78452.chunk.js.map",
+    "main.js": "/hotel_overlook/static/js/main.604498a2.chunk.js",
+    "main.js.map": "/hotel_overlook/static/js/main.604498a2.chunk.js.map",
     "runtime-main.js": "/hotel_overlook/static/js/runtime-main.940296f6.js",
     "runtime-main.js.map": "/hotel_overlook/static/js/runtime-main.940296f6.js.map",
     "static/js/2.f82cf29f.chunk.js": "/hotel_overlook/static/js/2.f82cf29f.chunk.js",
     "static/js/2.f82cf29f.chunk.js.map": "/hotel_overlook/static/js/2.f82cf29f.chunk.js.map",
     "index.html": "/hotel_overlook/index.html",
-    "precache-manifest.95cc58b2bee671c905e930a60fc85d8b.js": "/hotel_overlook/precache-manifest.95cc58b2bee671c905e930a60fc85d8b.js",
+    "precache-manifest.98042a1438714859bc57cc521f19dabc.js": "/hotel_overlook/precache-manifest.98042a1438714859bc57cc521f19dabc.js",
     "service-worker.js": "/hotel_overlook/service-worker.js",
     "static/css/main.bbba6ef9.chunk.css.map": "/hotel_overlook/static/css/main.bbba6ef9.chunk.css.map",
     "static/js/2.f82cf29f.chunk.js.LICENSE.txt": "/hotel_overlook/static/js/2.f82cf29f.chunk.js.LICENSE.txt",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.940296f6.js",
     "static/js/2.f82cf29f.chunk.js",
     "static/css/main.bbba6ef9.chunk.css",
-    "static/js/main.64b78452.chunk.js"
+    "static/js/main.604498a2.chunk.js"
   ]
 }
