@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/hotel_overlook/static/css/main.bbba6ef9.chunk.css",
-    "main.js": "/hotel_overlook/static/js/main.604498a2.chunk.js",
-    "main.js.map": "/hotel_overlook/static/js/main.604498a2.chunk.js.map",
+    "main.css": "/hotel_overlook/static/css/main.25d339e2.chunk.css",
+    "main.js": "/hotel_overlook/static/js/main.1fe8ed92.chunk.js",
+    "main.js.map": "/hotel_overlook/static/js/main.1fe8ed92.chunk.js.map",
     "runtime-main.js": "/hotel_overlook/static/js/runtime-main.940296f6.js",
     "runtime-main.js.map": "/hotel_overlook/static/js/runtime-main.940296f6.js.map",
-    "static/js/2.f82cf29f.chunk.js": "/hotel_overlook/static/js/2.f82cf29f.chunk.js",
-    "static/js/2.f82cf29f.chunk.js.map": "/hotel_overlook/static/js/2.f82cf29f.chunk.js.map",
+    "static/js/2.440eb6e3.chunk.js": "/hotel_overlook/static/js/2.440eb6e3.chunk.js",
+    "static/js/2.440eb6e3.chunk.js.map": "/hotel_overlook/static/js/2.440eb6e3.chunk.js.map",
     "index.html": "/hotel_overlook/index.html",
-    "precache-manifest.98042a1438714859bc57cc521f19dabc.js": "/hotel_overlook/precache-manifest.98042a1438714859bc57cc521f19dabc.js",
+    "precache-manifest.ad72e426566bd23a76958be5510361e2.js": "/hotel_overlook/precache-manifest.ad72e426566bd23a76958be5510361e2.js",
     "service-worker.js": "/hotel_overlook/service-worker.js",
-    "static/css/main.bbba6ef9.chunk.css.map": "/hotel_overlook/static/css/main.bbba6ef9.chunk.css.map",
-    "static/js/2.f82cf29f.chunk.js.LICENSE.txt": "/hotel_overlook/static/js/2.f82cf29f.chunk.js.LICENSE.txt",
+    "static/css/main.25d339e2.chunk.css.map": "/hotel_overlook/static/css/main.25d339e2.chunk.css.map",
+    "static/js/2.440eb6e3.chunk.js.LICENSE.txt": "/hotel_overlook/static/js/2.440eb6e3.chunk.js.LICENSE.txt",
     "static/media/center-square-wroclaw.jpg": "/hotel_overlook/static/media/center-square-wroclaw.3a698c4d.jpg",
     "static/media/city-houses-reykjavik.jpg": "/hotel_overlook/static/media/city-houses-reykjavik.71af9708.jpg",
     "static/media/fishmarket-hamborg.jpg": "/hotel_overlook/static/media/fishmarket-hamborg.090e74bc.jpg",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.940296f6.js",
-    "static/js/2.f82cf29f.chunk.js",
-    "static/css/main.bbba6ef9.chunk.css",
-    "static/js/main.604498a2.chunk.js"
+    "static/js/2.440eb6e3.chunk.js",
+    "static/css/main.25d339e2.chunk.css",
+    "static/js/main.1fe8ed92.chunk.js"
   ]
 }
