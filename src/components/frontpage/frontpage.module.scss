@@ -60,13 +60,13 @@
 
     .headerlogo{
         width: auto;
-        transform:translateX(10vw) translateY(-30vh);
+        transform:translateX(10vw) translateY(-50vh);
         img{
-            transform:scale(2);
+            width:43vw;
         }
         .headertext{
             font-size: 1rem;
-            transform: translateY(-40px)translateX(-10%);
+            transform: translateY(-30px)translateX(-10%);
         }
     }
 

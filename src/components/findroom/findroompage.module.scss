@@ -62,7 +62,7 @@
     padding: 8px;
     img{
         cursor: pointer;
-        width: 100%;
+        width: 95%;
     }
 
     h3{
@@ -103,6 +103,11 @@
         p{
             margin:1%;
         }
+    }
+    img{
+        margin-top:5%;
+        width: 95%;
+        cursor: pointer;
     }
 }
 
@@ -157,3 +162,47 @@
         height: 40px;
         display:inline-block}
 }   
+
+
+@media screen and (max-width: 992px) {
+
+    .headerlogo{
+        width: auto;
+        transform:translateX(10vw) translateY(-50vh);
+        img{
+            width:43vw;
+        }
+        .headertext{
+            font-size: 1rem;
+            transform: translateY(-30px)translateX(-10%);
+        }
+    }
+
+    .maincontainer{
+        grid-template-columns: 1fr;
+        width:95%;
+    }
+
+    .griditem{
+        grid-template-columns: 1fr;
+    }
+    .roomcontainer{
+        grid-template-columns: 1fr;
+    }
+    .accordiongrid{
+        grid-template-columns: 1fr;
+    }
+    .pricegrid{
+        grid-template-columns: 1fr;
+    }
+    .accordgriditem{
+        grid-template-columns: 1fr;
+        .accord_topimg{
+            margin:0;
+        }
+    }
+    .accord_topimg{
+        margin-top:0;
+    }
+
+}

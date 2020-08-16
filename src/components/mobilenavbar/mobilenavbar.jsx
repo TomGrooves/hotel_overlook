@@ -7,8 +7,22 @@ import SearchBar from '../searchbar/search';
 // Movbile Navbar inspiration from: https://www.cssscript.com/pure-css-fold-out-navigation-menu/
 
 function MobileNavBar(props){
+    // Navbar options
+    const options = {
+        bgcolor : "rgb(20,20,20)",  //required
+        textcolor : "white",        //require
+        navlinks : [
+        {main:"Forside"}, 
+        {main:"Hoteller og destinationer"},  
+        {main:"Reservation"},
+        {main:"Login"}
+        ],                          //required
+        gap : 3,                    //required [1 - 12]
+        height : "90px",            //optional
+        fontsize : "1rem",        //optional
+        innersize: "80%",
+    }
 
-    const options = props.options
     const navLinks = options.navlinks
 
     return(
@@ -21,7 +35,7 @@ function MobileNavBar(props){
         <ul id="menu">
         {navLinks && navLinks.map((item,i) => {
                 if (!item.sub){
-                    return <Link key={i} to={item.main.toLowerCase()}>
+                    return <Link key={i} to={"/"+item.main.toLowerCase()}>
                                 {item.main}      
                             </Link>
                 }

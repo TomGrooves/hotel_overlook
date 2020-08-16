@@ -6,16 +6,20 @@ import header from '../../Vektor/headernew.svg'
 import Accordion from '../../components/accordian/accordion'
 import {FcCheckmark} from 'react-icons/fc'
 import {useLocation, Link} from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive';
+
 
 function FindRoomPage(props) {
 
     let location = useLocation();
-
     
     useEffect(() => {
         props.setCurrentLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
+
+
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 960px)' })
 
     const [selectedHotelRoom, setSelectedHotelRoom] = useState(0)
     const [singleHotelRoom, setSingleHotelRoom] = useState()
@@ -43,6 +47,11 @@ function FindRoomPage(props) {
         <section className={style.maincontainer}>
             <div>
                 <h3>Find dit værelse</h3>
+                {isTabletOrMobile &&    
+                <div className={style.searchContainer}>
+                    <h4>Søg</h4>
+                    <Search setSearchPersons={props.setSearchPersons} doFetch={props.doFetch} vert={true} setSearchResult={props.setSearchResult}/>
+                </div>}
                 <div className={style.roomcontainer}>
                     {props.searchResult && props.searchResult.item && props.searchResult.item.rooms && props.searchResult.item.rooms.items && props.searchResult.item.rooms.items.map((item, index) => {   
                        if (props.searchPersons <= item.num_persons){
@@ -100,10 +109,11 @@ function FindRoomPage(props) {
                     })}
                 </div>
             </div>
+            {!isTabletOrMobile &&   
             <div className={style.searchContainer}>
                 <h4>Søg</h4>
                 <Search setSearchPersons={props.setSearchPersons} doFetch={props.doFetch} vert={true} setSearchResult={props.setSearchResult}/>
-            </div>
+            </div>}
         </section>
         </>
     )
