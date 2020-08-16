@@ -72,7 +72,7 @@ function Navbar(props){
             <img alt="Hotel Overlook" style={logoSize} src={logo}/>
             {navLinks && navLinks.map((item,i) => {
                 if (!item.sub){
-                    return <Link style={linkStyle} key={i} className={item.sub ? Style.dropdown : ""} to={item.main.toLowerCase()}>
+                    return <Link style={linkStyle} key={i} className={item.sub ? Style.dropdown : ""} to={"/"+item.main.toLowerCase()}>
                                 {item.main}      
                             </Link>
                 }
@@ -84,7 +84,7 @@ function Navbar(props){
                         {item.sub && 
                             <div className={Style.dropdownContent} style={{backgroundColor:options.bgcolor}}>
                                 {item.sub && item.sub.map((sub, i) => {
-                                return <Link key={i} style={sublinkStyle} to={sub.toLowerCase()}>{sub}</Link>
+                                return <Link key={i} style={sublinkStyle} to={"/"+sub.toLowerCase()}>{sub}</Link>
                             })}
                             </div>
                         }           
