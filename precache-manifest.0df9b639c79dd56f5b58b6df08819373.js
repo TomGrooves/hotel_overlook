@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fe6f5e79bd7047df0b8aea9f8e6fab90",
+    "revision": "98338665d387f4a9815c6643f000b6d2",
     "url": "/hotel_overlook/index.html"
   },
   {
-    "revision": "60b745b3a52bcc984bbe",
-    "url": "/hotel_overlook/static/css/main.f19f7960.chunk.css"
+    "revision": "a41f47daa1fa400956ed",
+    "url": "/hotel_overlook/static/css/main.29273d63.chunk.css"
   },
   {
     "revision": "9655a649a9d279175171",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hotel_overlook/static/js/2.60463699.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "60b745b3a52bcc984bbe",
+    "revision": "a41f47daa1fa400956ed",
     "url": "/hotel_overlook/static/js/main.18c14eed.chunk.js"
   },
   {
