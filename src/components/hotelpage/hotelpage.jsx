@@ -9,6 +9,15 @@ import {FcCheckmark} from 'react-icons/fc'
 import {useLocation, Link} from 'react-router-dom'
 import Modal from '../modal/modal';
 
+//Import countryimages
+import danmarkImg from '../../Billeder/countries/danmark.png';
+import finlandImg from '../../Billeder/countries/Finland.png';
+import islandImg from '../../Billeder/countries/island.png';
+import norgeImg from '../../Billeder/countries/Norge.png';
+import polenImg from '../../Billeder/countries/Polen.png';
+import sverigeImg from '../../Billeder/countries/sverige.png';
+import tysklandImg from '../../Billeder/countries/Tyskland.png';
+
 function HotelPage(props) {
 
     let location = useLocation();
@@ -71,8 +80,32 @@ function HotelPage(props) {
         return teaserText
     }
 
+    const getCountryImage = (country) => {
+        
+        let img = {
+            Danmark : danmarkImg,
+            Finland : finlandImg,
+            Sverige : sverigeImg,
+            Polen   : polenImg,
+            Island  : islandImg,
+            Norge   : norgeImg,
+            Tyskland: tysklandImg,
+        }
+        
+        switch(country) {
+            case "Danmark": return img.Danmark;
+            case "Finland": return img.Finland;
+            case "Sverige": return img.Sverige;
+            case "Polen": return img.Polen;
+            case "Island": return img.Island;
+            case "Norge": return img.Norge;
+            case "Tyskland": return img.Tyskland;
+        }
+    }
+
     useEffect(() => {
         fetchCountries()
+        setCountryName("Danmark")
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -145,6 +178,7 @@ function HotelPage(props) {
 
         <article className={style.maincontainer}>
         {!selectedCity &&
+        <div className={style.countrycontainer}>
         <section className={style.gridcontainer}>
                 {cities && cities.items && cities.items.map((item, index) => {
                     return (
@@ -156,6 +190,12 @@ function HotelPage(props) {
                     )
                 })}
         </section>
+        
+        <div>
+            <h4 className={style.countrytext}>Kort over {countryName}</h4>
+            <img className={style.countryimage} alt={countryName} src={getCountryImage(countryName)}></img>
+        </div>
+        </div>          
         }
 
         {selectedCity && !selectedHotel &&

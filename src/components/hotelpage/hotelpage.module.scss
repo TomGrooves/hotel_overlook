@@ -104,6 +104,8 @@
     border-top: solid 1px $color-bg;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border-right: 1px dotted rgb(80,80,80);
+    padding-right: 16px;
     gap:32px;
 
     .griditem{
@@ -131,10 +133,19 @@
     margin-top:2.5%;
 }
 
+.countrytext{
+    margin-left:7%;
+    padding: 8px;
+    font-size: 1.3rem;
+    margin-bottom:0;
+}
+
 .hotelgridcontainer{
     border-top: solid 1px $color-bg;
     display:inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border-right: 1px dotted rgb(80,80,80);
+    padding: 8px;
     gap:32px;
     width:80%;
 
@@ -199,8 +210,9 @@
 }
 
 .sidemenu{
-    transform: translateY(-75px);
+    transform: translateY(-150px);
     display: inline-block;
+    padding: 8px;
     p{
         cursor: pointer;
     }
@@ -225,6 +237,19 @@
 
     article{
         background-color:white;
+    }
+}
+
+.countrycontainer{
+    border-top: 1px dotted rgb(80,80,80);
+    display:grid;
+    gap: 16px;
+    grid-template-columns: 5fr 1fr;
+
+    .countryimage{
+        padding: 16px;
+        margin-left:5%;
+        width:100%;
     }
 }
 
@@ -346,6 +371,8 @@
 
     .gridcontainer{
         grid-template-columns: 1fr;
+        border-right:none;
+        padding-right:0;
     }
 
     .hotelgridcontainer{
@@ -367,6 +394,16 @@
     }
     .maincontainer{
         width:95%;
+    }
+
+    .countrycontainer{
+        grid-template-columns: 1fr;
+
+        .countryimage{
+            padding: 16px;
+            margin-left:5%;
+            width:80%;
+        }
     }
     .roomcontainer{
         grid-template-columns: 1fr;

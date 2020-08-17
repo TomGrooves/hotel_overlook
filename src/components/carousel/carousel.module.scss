@@ -15,8 +15,8 @@
 
 .buttonleft{
     position: absolute;
-    left: 5px;
-    margin-left: 2%;
+    left: 15px;
+    margin:0;
     transform:scale(2.5);
     color:white;
     transition: all 0.4s ease-in-out;
@@ -24,9 +24,8 @@
 
 .buttonright{
     position: absolute;
-    right: 5px;
-    margin-right: 2%;
-    margin-left: 2%;
+    right:15px;
+    margin:0;
     transform:scale(2.5);
     color:white;
     transition: all 0.4s ease-in-out;
