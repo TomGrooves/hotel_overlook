@@ -22,20 +22,22 @@ function Navbar(props){
         innersize: "80%",
     }
 
+    // set navigation links
     const navLinks = options.navlinks
   
-
+    // set navigation style
     const navStyle = {
         width: "100%",
         backgroundColor: options.bgcolor,
         boxShadow: "0px 3px 12px 0px rgba(0,0,0,0.75)",
     }
-
+    // set logoSize
     const logoSize = {
         width: "35%",
         marginLeft:"5%",
     }
 
+    // set link style
     const linkStyle={
         color: options.textcolor,
         display: "grid",
@@ -46,6 +48,7 @@ function Navbar(props){
         alignItems:"center",
     }
 
+    // set sublink style
     const sublinkStyle={
         color: options.textcolor,
         height: "100%",
@@ -55,6 +58,7 @@ function Navbar(props){
         textUnderline: "none",
     }
 
+    // set innersize
     const innerSize={
         width: options.innersize,
         display: "grid",
@@ -64,7 +68,7 @@ function Navbar(props){
         height: `${options.height || "40px"}`,
         fontSize: `${options.fontsize || "1rem"}`
     }
-    
+    // return html with links 
     return(
         <>
         <nav style={navStyle}>
@@ -95,13 +99,17 @@ function Navbar(props){
             })}
             </div>
         </nav>
-        {props.currentLocation == "/" && 
+        
+        {//only render searchbar if location is /
+        props.currentLocation == "/" && 
             <SearchBar setSearchPersons={props.setSearchPersons} doFetch={props.doFetch} setSearchResult={props.setSearchResult}/>
         }
-        {props.currentLocation == "/forside" && 
+        {//only render searchbar if location is /forside
+        props.currentLocation == "/forside" && 
             <SearchBar setSearchPersons={props.setSearchPersons} doFetch={props.doFetch} setSearchResult={props.setSearchResult}/>
         }
-        {props.currentLocation == "/hoteller og destinationer" && 
+        {//only render searchbar if location is /hoteller og destinationer
+        props.currentLocation == "/hoteller og destinationer" && 
             <SearchBar setSearchPersons={props.setSearchPersons} doFetch={props.doFetch} setSearchResult={props.setSearchResult}/>
         }
             </>

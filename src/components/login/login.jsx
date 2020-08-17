@@ -5,17 +5,19 @@ import {useLocation, Link} from 'react-router-dom'
 
 function Login(props) {
 
+    // Get current location
     let location = useLocation();
-
     useEffect(() => {
         props.setCurrentLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
+    // set states needed by component
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [message, setMessage] = useState("Indtast login oplysninger")
 
+    // POST request with formdata from login input fields
     const sendLoginRequest = (e) => {
         e.preventDefault()
         let formData = new FormData()
@@ -34,6 +36,7 @@ function Login(props) {
         .catch(error => setMessage(error))
     }
     
+    // fucntion to handle session data (save data or set not authorized message)
     const handleSessionData = (key) => {
         setPassword("")
         setUsername("")
@@ -48,12 +51,14 @@ function Login(props) {
         }
       }
 
+      // function to log out
       const logOut = () => {
           props.setLoginData()
           sessionStorage.removeItem('token');
           setMessage("Du er nu logget ud")
       }
 
+      // return html with forms and buttons
     return (
     <div>
         <section className={Style.loginform}>

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 function Search(props) { 
 
+    // set states needed by component
     const [countries, setCountries] = useState([])
     const [activeCountry, setActiveCountry] = useState(1)
     const [cities, setCities] = useState([])
@@ -11,35 +12,41 @@ function Search(props) {
     const [hotels, setHotels] = useState([])
     const [selectedHotel, setSelectedHotel] = useState(0)
 
+    // fetch all countries
     const fetchCountries = async () => {
         let countryUrl = "https://api.mediehuset.net/overlook/countries"
         let countries = await props.doFetch(countryUrl)
         setCountries(countries)
     }
 
+    // fetch all cities by selected country
     const fetchCities = async () => {
         let cityUrl = `https://api.mediehuset.net/overlook/cities/by_country/${activeCountry}`
         let cities = await props.doFetch(cityUrl)
         setCities(cities)
     }
 
+    // fetch all hotels by selected city
     const fetchHotelsByCity = async () => {
         let hotelUrl = `https://api.mediehuset.net/overlook/hotels/by_city/${selectedCity}`
         let hotels = await props.doFetch(hotelUrl)
         setHotels(hotels)
     }
 
+    // fetch rooms by selected hotel
     const fetchSpecificHotel = async () => {
         let singleHotelUrl = `https://api.mediehuset.net/overlook/hotels/${selectedHotel}`
         let singleHotel = await props.doFetch(singleHotelUrl)
         props.setSearchResult(singleHotel)
     }
 
+    // fetch all countries when component mounts
     useEffect(() => {
         fetchCountries()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    // reset states when active country changes
     useEffect(() => {
         setCities([])
         setSelectedCity(null)
@@ -49,6 +56,7 @@ function Search(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeCountry])
 
+    // fetch all hotels by city when selected city changes
     useEffect(() => {
         if (!selectedCity == 0){
             fetchHotelsByCity()
@@ -56,11 +64,13 @@ function Search(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCity])
 
+    // function to fetch results when user clicks button
     const doSearch = () => {
         fetchSpecificHotel()
     }
+
+    // return html and concent for searchbar
     return (
-        
         <form className={props.vert ? style.searchbarvert : style.searchbar}>
            <div className={style.description}><b>Find dit værelse</b></div>
            <div>

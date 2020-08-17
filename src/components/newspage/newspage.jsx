@@ -5,13 +5,14 @@ import {useLocation, Link} from 'react-router-dom'
 
 function NewsPage(props) {
 
+    // set current location
     let location = useLocation();
-
     useEffect(() => {
         props.setCurrentLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
+    // function to convert timestamp to human readable date
     const convertTime = (timestamp) => {
         const milliseconds = timestamp * 1000
         const newDate = new Date(milliseconds)
@@ -23,6 +24,7 @@ function NewsPage(props) {
         return concDate
     }
 
+    // return html with content
     return (
         <article className={style.newscontainer}>
             {props.singleNews && props.singleNews.item &&

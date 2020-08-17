@@ -11,19 +11,21 @@ import { useMediaQuery } from 'react-responsive';
 
 function FindRoomPage(props) {
 
-    let location = useLocation();
-    
+    // get current location
+    let location = useLocation();    
     useEffect(() => {
         props.setCurrentLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
-
+    // check media quary
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 960px)' })
 
+    // set default states
     const [selectedHotelRoom, setSelectedHotelRoom] = useState(0)
     const [singleHotelRoom, setSingleHotelRoom] = useState()
 
+    // fetch selected hotel room when selected hotel is set
     useEffect(() => {
         if (!selectedHotelRoom == 0){
             fetchSingleHotelRoom()
@@ -31,12 +33,14 @@ function FindRoomPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedHotelRoom])
 
+    // fetch
     const fetchSingleHotelRoom = async () => {
         let singleRoomUrl = `https://api.mediehuset.net/overlook/rooms/${selectedHotelRoom}`
         let singleHotelRoom = await props.doFetch(singleRoomUrl)
         setSingleHotelRoom(singleHotelRoom)
     }
     
+    // return html with results
     return (
         <>
         <Carousel delay="10" height="70vh" buttonHeight="35vh" items={props.carouselItems}></Carousel>

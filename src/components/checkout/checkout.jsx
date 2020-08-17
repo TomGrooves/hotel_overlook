@@ -49,30 +49,35 @@ function CheckOut (props) {
     const [selectedHotelRoom, setSelectedHotelRoom] = useState(0)
     const [singleHotelRoom, setSingleHotelRoom] = useState()
 
+    // fetch all coutries
     const fetchCountries = async () => {
         let countryUrl = "https://api.mediehuset.net/overlook/countries"
         let countries = await props.doFetch(countryUrl)
         setCountries(countries)
     }
 
+    // fetch all cities by selected country
     const fetchCities = async () => {
         let cityUrl = `https://api.mediehuset.net/overlook/cities/by_country/${activeCountry}`
         let cities = await props.doFetch(cityUrl)
         setCities(cities)
     }
 
+    // fetch all hotels by selected city
     const fetchHotelsByCity = async () => {
         let hotelUrl = `https://api.mediehuset.net/overlook/hotels/by_city/${selectedCity}`
         let hotels = await props.doFetch(hotelUrl)
         setHotels(hotels)
     }
 
+    // fetch selected hotel
     const fetchSpecificHotel = async () => {
         let singleHotelUrl = `https://api.mediehuset.net/overlook/hotels/${selectedHotel}`
         let singleHotel = await props.doFetch(singleHotelUrl)
         setSingleHotel(singleHotel)
     }
 
+    // fetch all rooms by selected hotel
     const fetchSingleHotelRoom = async () => {
         let singleRoomUrl = `https://api.mediehuset.net/overlook/rooms/${selectedHotelRoom}`
         let singleHotelRoom = await props.doFetch(singleRoomUrl)
@@ -96,11 +101,13 @@ function CheckOut (props) {
       return (false)
     }
 
+    // fetch all countries on load
     useEffect(() => {
         fetchCountries()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    // reset when changing country
     useEffect(() => {
         setCities([])
         setSelectedCity(null)
@@ -111,6 +118,7 @@ function CheckOut (props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeCountry])
 
+    // fetch hotels when selected city is done
     useEffect(() => {
         if (!selectedCity == 0){
             fetchHotelsByCity()
@@ -118,6 +126,7 @@ function CheckOut (props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCity])
 
+    // fetch selected hotel when selected hotel is set
     useEffect(() => {
         if (!selectedHotel == 0){
             fetchSpecificHotel()
@@ -125,6 +134,7 @@ function CheckOut (props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedHotel])
 
+    // fetch single hotel room when single room is selected
     useEffect(() => {
         if (!selectedHotelRoom == 0){
             fetchSingleHotelRoom()
@@ -132,6 +142,7 @@ function CheckOut (props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedHotelRoom])
 
+    // order/reserve function
     const orderTicket = () => {
 
         console.log("email is " + email)
@@ -146,11 +157,13 @@ function CheckOut (props) {
         console.log("Unconverted checkin is " + checkIn)
         console.log("Unconverted checkOut is " + checkOut)
 
+        // Check if all is set
         if (userID && validateEmail(email) && firstName && lastName && phone && flexPrice && hotelID && roomID && numPersons && checkOut && checkIn){
         let formData = new FormData()
         let cCheckIn = convertToTimestamp(checkIn)
         let cCheckOut = convertToTimestamp(checkOut)
 
+        // append data to form
         formData.append("email", email.toString())
         formData.append("firstname", firstName.toString())
         formData.append("lastname", lastName.toString())
@@ -165,6 +178,7 @@ function CheckOut (props) {
         formData.append("num_persons", numPersons)
 
         console.log(formData)
+        //Post data to server
         let url = "https://api.mediehuset.net/overlook/reservations"
         fetch(url, {
             method: "POST",
@@ -179,6 +193,7 @@ function CheckOut (props) {
         .then(setMsg("Din reservation er modtaget og du vil modtage en ordrebekærftelse på din mail indenfor få minutter. Du kan også følge eller slette din reservation fra menuen 'Mine reservationer' "))
             .catch(error => console.log(error))
         }
+        // validation checks 
         else if (!validateEmail(email)){
             setMsg("Dette er ikke en gyldig email")
         }
@@ -214,6 +229,7 @@ function CheckOut (props) {
         }
     }
 
+    // return forms and buttons
     return (
         <>
     <section className={Style.topheader}>

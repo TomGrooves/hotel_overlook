@@ -22,9 +22,10 @@ function MobileNavBar(props){
         fontsize : "1rem",        //optional
         innersize: "80%",
     }
-
+    // set navigation links to be array of links
     const navLinks = options.navlinks
 
+    // return html
     return(
 
     <nav id="menuToggle">

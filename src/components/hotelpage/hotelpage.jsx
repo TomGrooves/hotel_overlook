@@ -20,13 +20,14 @@ import tysklandImg from '../../Billeder/countries/Tyskland.png';
 
 function HotelPage(props) {
 
+    // set current location
     let location = useLocation();
-
     useEffect(() => {
         props.setCurrentLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
+    // set states needed by component
     const [countries, setCountries] = useState([])
     const [activeCountry, setActiveCountry] = useState(1)
     const [cities, setCities] = useState([])
@@ -39,47 +40,55 @@ function HotelPage(props) {
     const [selectedHotelRoom, setSelectedHotelRoom] = useState(0)
     const [singleHotelRoom, setSingleHotelRoom] = useState()
 
+    // fetch all countries
     const fetchCountries = async () => {
         let countryUrl = "https://api.mediehuset.net/overlook/countries"
         let countries = await props.doFetch(countryUrl)
         setCountries(countries)
     }
 
+    // fetch all cities by selected country
     const fetchCities = async () => {
         let cityUrl = `https://api.mediehuset.net/overlook/cities/by_country/${activeCountry}`
         let cities = await props.doFetch(cityUrl)
         setCities(cities)
     }
 
+    // fetch single city by selected city
     const fetchSingleCity = async () => {
         let cityUrl = `https://api.mediehuset.net/overlook/cities/${selectedCity}`
         let city = await props.doFetch(cityUrl)
         setSingleCity(city)
     }
 
+    // fetch all hotels by selected city
     const fetchHotelsByCity = async () => {
         let hotelUrl = `https://api.mediehuset.net/overlook/hotels/by_city/${selectedCity}`
         let hotels = await props.doFetch(hotelUrl)
         setHotels(hotels)
     }
 
+    // fetch specific hotel by selected hotel
     const fetchSpecificHotel = async () => {
         let singleHotelUrl = `https://api.mediehuset.net/overlook/hotels/${selectedHotel}`
         let singleHotel = await props.doFetch(singleHotelUrl)
         setSingleHotel(singleHotel)
     }
 
+    // fetch all hotel rooms by selected hotel
     const fetchSingleHotelRoom = async () => {
         let singleRoomUrl = `https://api.mediehuset.net/overlook/rooms/${selectedHotelRoom}`
         let singleHotelRoom = await props.doFetch(singleRoomUrl)
         setSingleHotelRoom(singleHotelRoom)
     }
 
+    // shorten string function
     const makeTeaser = (text) => {
         let teaserText = text.substring(0,160) + "...";
         return teaserText
     }
 
+    // function to return country map image
     const getCountryImage = (country) => {
         
         let img = {
@@ -103,12 +112,14 @@ function HotelPage(props) {
         }
     }
 
+    // fetch countries and set start location to DK on component mount
     useEffect(() => {
         fetchCountries()
         setCountryName("Danmark")
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    // reset states when country changes
     useEffect(() => {
         setCities([])
         setSelectedCity(null)
@@ -119,6 +130,7 @@ function HotelPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeCountry])
 
+    // fetch selected city when selected city changes
     useEffect(() => {
         if (!selectedCity == 0){
             fetchHotelsByCity()
@@ -127,6 +139,7 @@ function HotelPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCity])
 
+    // fech specific hotel when selected hotel changes
     useEffect(() => {
         if (!selectedHotel == 0){
             fetchSpecificHotel()
@@ -134,6 +147,7 @@ function HotelPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedHotel])
 
+    // fetch specific hotel room when selected hotel rooms changes
     useEffect(() => {
         if (!selectedHotelRoom == 0){
             fetchSingleHotelRoom()
@@ -141,7 +155,7 @@ function HotelPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedHotelRoom])
 
-
+    // return html and content with conditional rendering (depends on content)
     return (
         <>
         <Carousel delay="10" height="70vh" buttonHeight="35vh" items={props.carouselItems}></Carousel>

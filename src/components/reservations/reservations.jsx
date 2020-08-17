@@ -3,15 +3,18 @@ import style from './reservations.module.scss';
 
 function Reservations(props) {
 
+    // set states needed by component
     const [reservations, setReservations] = useState([]);
     const [message, setMessage] = useState("")
 
+    // function to fetch all reservations by user id
     const getReservations = async(id) => {
         let reservationUrl = `https://api.mediehuset.net/overlook/reservations/list_by_user/${id}`
         let reservationRes = await props.doFetch(reservationUrl)
         setReservations(reservationRes)
     }
 
+    // function to cancel reservation by reservation id
     const cancelReservation = async(id) => {
         let deleteUrl = `https://api.mediehuset.net/overlook/reservations/${id}`
         let deleteRes = await props.doFetch(deleteUrl, "DELETE")
@@ -22,6 +25,7 @@ function Reservations(props) {
         }, 1000);
     }
 
+    // fetch all reservations when component mounts
     useEffect(() => {
         if (props.loginData){
             getReservations(props.loginData.user_id)
@@ -32,6 +36,7 @@ function Reservations(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    // function to get price model
     const getPrice = (flex) =>{
         if (flex === 0){
             return "Standard"
@@ -41,6 +46,7 @@ function Reservations(props) {
         }
     }
 
+    // return html and concent
     return (
         <>
             <section className={style.topcontainer}>

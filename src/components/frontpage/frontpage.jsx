@@ -8,35 +8,39 @@ import { useLocation, Link } from 'react-router-dom'
 
 function FrontPage(props) {
 
+    // Get current location
     let location = useLocation();
-
     useEffect(() => {
         props.setCurrentLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
-
+    // set current states
     const [news, setNews] = useState([]);
     const [randomRooms, setRandomRooms] = useState([]);
 
+    // fetch news 
     const fetchNews = async () => {
         let newsUrl = "https://api.mediehuset.net/overlook/news";
         let news = await props.doFetch(newsUrl)
         setNews(news)
     }
     
+    // fetch hotel rooms from hotel 1 for 3 selected hotels
     const fetchRooms = async () => {
         let roomsUrl = `https://api.mediehuset.net/overlook/rooms/by_hotel/1`;
         let rooms = await props.doFetch(roomsUrl)
         setRandomRooms(rooms)
     }
 
+    // fetch specific news article 
     const fetchSelectedNews = async (id) => {
         let singleNewsUrl = `https://api.mediehuset.net/overlook/news/${id}` 
         let singleNews = await props.doFetch(singleNewsUrl)
         props.setSingleNews(singleNews)
     }
 
+    // fetch news and rooms when component is mounted
     useEffect(() => {
         let mounted = true;
         if(mounted){
@@ -48,6 +52,7 @@ function FrontPage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
+    // return html with content
     return (
         <section className={style.maincontainer}>
         <Carousel delay="10" height="70vh" buttonHeight="35vh" items={props.carouselItems}></Carousel>
